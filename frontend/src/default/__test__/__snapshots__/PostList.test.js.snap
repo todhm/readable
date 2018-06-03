@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostList same with snapshot  1`] = `
+<React.Fragment>
+  <WithStyles(Button)
+    onClick={[Function]}
+  >
+    <pure(ArrowDownward) />
+  </WithStyles(Button)>
+  <WithStyles(Card)>
+    <WithStyles(Connect(LittlePost))
+      postId=""
+      title=""
+      voteDown={false}
+      voteScore={1}
+      voteUp={false}
+    />
+  </WithStyles(Card)>
+</React.Fragment>
+`;

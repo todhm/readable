@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PostModal matches snapshot 1`] = `
+<WithStyles(Dialog)
+  aria-labelledby="form-dialog-title"
+  fullScreen={true}
+  maxWidth="xs"
+  onClose={[Function]}
+  open={true}
+>
+  <WithStyles(DialogTitle)
+    id="form-dialog-title"
+  >
+    Add Your Favorite Post
+  </WithStyles(DialogTitle)>
+  <WithStyles(DialogContent)>
+    <TextField
+      autoFocus={true}
+      id="author"
+      label="Author"
+      margin="dense"
+      name="author"
+      required={false}
+      select={false}
+      type="text"
+      value="Lebron Jame"
+    />
+    <TextField
+      autoFocus={true}
+      fullWidth={true}
+      id="title"
+      label="Title"
+      margin="dense"
+      name="title"
+      required={false}
+      select={false}
+      type="text"
+      value="How Could I went to Fianl in 2018"
+    />
+    <TextField
+      autoFocus={true}
+      fullWidth={true}
+      id="body"
+      label="Body"
+      margin="dense"
+      multiline={true}
+      name="body"
+      required={false}
+      rows="15"
+      select={false}
+      type="text"
+      value="I worked hard"
+    />
+  </WithStyles(DialogContent)>
+  <WithStyles(DialogActions)>
+    <WithStyles(Button)
+      color="primary"
+      onClick={[Function]}
+    >
+      Cancel
+    </WithStyles(Button)>
+    <WithStyles(Button)
+      color="primary"
+      onClick={[Function]}
+      type="submit"
+    >
+      Add Post
+    </WithStyles(Button)>
+  </WithStyles(DialogActions)>
+</WithStyles(Dialog)>
+`;
