@@ -39,10 +39,10 @@ class CategoryPost extends Component {
          this.props.updateCategorySort(e.target.value,category);
      }
 
-     handleChange = name => ({ target: { value } }) => {
-      this.setState({
-        [name]: value
-      });
+    handleChange = name => ({ target: { value } }) => {
+        this.setState({
+          [name]: value
+        });
     };
 
      handlePostAdd=(e)=>{
@@ -50,56 +50,60 @@ class CategoryPost extends Component {
      }
 
      submitForm=(e)=>{
-         e.preventDefault()
-         const values = serializeForm(e.target, { hash: true })
-         const{author,title,body} = values;
-         const {categoryObj} = this.props;
-         const category = categoryObj.name;
-         if(!(author&&title&&body)){
-             alert("Please fill out the Form!")
-             return ;
-         }
-         const data = {id:uuid(),timestamp:Date.now(),author,title,body,category};
-         this.props.addPost(data);
-         this.setState({
-             showModal:false,
-         })
-     }
+        e.preventDefault()
+        const values = serializeForm(e.target, { hash: true })
+        const{author,title,body} = values;
+        const {categoryObj} = this.props;
+        const category = categoryObj.name;
+        if(!(author&&title&&body)){
+            alert("Please fill out the Form!")
+            return ;
+        }
+        const data = {id:uuid(),timestamp:Date.now(),author,title,body,category};
+        this.props.addPost(data);
+        this.setState({
+            showModal:false,
+        })
+    }
 
 
 
-      render() {
-          const { classes,categoryObj,postList} = this.props;
-          const {showModal} = this.state
-          return (
-      <Fragment>
-        <Paper className={classes.root} >
-            <Typography variant="headline" component="h3">
-              <Link key={categoryObj.name} to={'/category/'+categoryObj.name}>{categoryObj.name.toUpperCase()}</Link>
-              <Button onClick={this.handlePostAdd}>
-                  <AddCircleOutline/>
-              </Button>
-            </Typography>
-            <FormControl className={classes.formControl}>
-               <InputLabel htmlFor="controlled-open-select">Sort</InputLabel>
-               <Select value={categoryObj.sortMethod} onChange={this.handleSort}>
-                 <MenuItem value="">
-                   <em>None</em>
-                 </MenuItem>
-                 <MenuItem key="timestamp" value="timestamp">timestamp</MenuItem>
-                 <MenuItem key="voteScore" value="voteScore">voteScore</MenuItem>
-               </Select>
-             </FormControl>
-              <PostList postList={postList} style={classes.root} sortMethod={categoryObj.sortMethod}/>
-          </Paper>
-              <PostModal
-                  open={showModal}
-                  handleClose={this.handleModalClose}
-                  style={classes.dialog}
-                  submitForm={this.submitForm}
-                  handleChange={this.handleChange}
-                  />
-          </Fragment>
+    render() {
+      const { classes,categoryObj,postList} = this.props;
+      const {showModal} = this.state
+      return (
+          <Fragment>
+            <Paper className={classes.root} >
+                <Typography variant="headline" component="h3">
+                  <Link key={categoryObj.name} to={'/'+categoryObj.name}>{categoryObj.name.toUpperCase()}</Link>
+                  <Button onClick={this.handlePostAdd}>
+                      <AddCircleOutline/>
+                  </Button>
+                </Typography>
+                <FormControl className={classes.formControl}>
+                   <InputLabel htmlFor="controlled-open-select">Sort</InputLabel>
+                   <Select value={categoryObj.sortMethod} onChange={this.handleSort}>
+                     <MenuItem value="">
+                       <em>None</em>
+                     </MenuItem>
+                     <MenuItem key="timestamp" value="timestamp">timestamp</MenuItem>
+                     <MenuItem key="voteScore" value="voteScore">voteScore</MenuItem>
+                   </Select>
+                 </FormControl>
+                  <PostList
+                       postList={postList}
+                       style={classes.root}
+                       sortMethod={categoryObj.sortMethod}
+                       />
+              </Paper>
+                  <PostModal
+                      open={showModal}
+                      handleClose={this.handleModalClose}
+                      style={classes.dialog}
+                      submitForm={this.submitForm}
+                      handleChange={this.handleChange}
+                      />
+              </Fragment>
         );
       }
     }

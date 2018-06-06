@@ -21,7 +21,7 @@ To get started developing right away:
    └── PostReducer
 ```
 
-##Main View
+## Main View
 * This App hold 3 main views and Edit and Add view for subcomponent
 ```bash
 ├──
@@ -33,3 +33,7 @@ To get started developing right away:
         ├── Edit Post View
         ├── Add Comment View
         └── Edit Comment View
+
+
+## License
+Redable is open source software [licensed as MIT](https://github.com/todhm/readable/blob/master/LICENSE).

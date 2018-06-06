@@ -1,38 +1,33 @@
 import * as api from '../utils/api'
-import * as defaultAction from '../default/action'
+import * as postAction from './actionTypes'
 
-export const GET_POST = "GET_POST"
-export const GET_COMMENTS = "GET_COMMENTS"
-export const ADD_COMMENTS = "ADD_COMMENTS"
-export const EDIT_COMMENT = "EDIT_COMMENT"
-export const DELETE_COMMENT = "DELETE_COMMENT"
 
 export const fetchPost=(data)=>({
-    type:GET_POST,
+    type:postAction.GET_POST,
     data:data
 })
 
 
 export const fetchComments=(data)=>({
-    type:GET_COMMENTS,
+    type: postAction.GET_COMMENTS,
     data:data
 })
 
 
 export const fetchNewComment=(data)=>({
-    type:ADD_COMMENTS,
+    type: postAction.ADD_COMMENTS,
     data:data
 })
 
 
 export const fetchEditComment=(commentId,data)=>({
-    type:EDIT_COMMENT,
+    type: postAction.EDIT_COMMENT,
     commentId:commentId,
     data:data
 })
 
 export const fetchDeleteComment=(commentId,data)=>({
-    type:DELETE_COMMENT,
+    type: postAction.DELETE_COMMENT,
     commentId:commentId,
     data:data
 })
@@ -48,6 +43,9 @@ export const editPost=(postId,body)=>dispatch=>(
 export const getPost=(postId)=>dispatch=>(
     api.getData('/posts/'+postId).then(response=>{
         const post = response.data;
+        if(!post.id){
+            window.location='/notfound';
+        }
         dispatch(fetchPost(post))
         }
     )

@@ -1,6 +1,6 @@
 
 import  * as postAction from '../action';
-import {PostReducer,initialPost} from '../../reducers'
+import {PostReducer,initialPost} from '../../reducers/postreducer'
 
 export const testPost={
     id:"testpost2",

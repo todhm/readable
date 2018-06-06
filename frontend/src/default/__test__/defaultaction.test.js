@@ -1,6 +1,6 @@
 
 import  * as defaultAction from '../action';
-import {DataCenterReducer,initialPost} from '../../reducers'
+import DataCenterReducer,{initialPost} from '../../reducers'
 
 const commentList=[
     {id:"test",name:"test"}
